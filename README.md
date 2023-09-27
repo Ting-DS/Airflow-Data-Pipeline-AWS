@@ -10,11 +10,11 @@ Sparkify is a music streaming company, aims to enhance automation and monitoring
 ## Project Airflow DAG 
 
 <div align="center">
-  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/dag_graph.png" width="100%">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/dag-graph.png" width="100%">
 </div>
 
 <div align="center">
-  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/dag_grid.png" width="100%">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/DAG_grid.png" width="100%">
 </div>
 
 
@@ -84,11 +84,11 @@ This operator runs SQL-based data checks, comparing actual results to expected o
 ## Airflow DAGs monitoring
 
 <div align="center">
-  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/dag_run.png" width="100%">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/DAG_run.png" width="100%">
 </div>
 
 ## Run SQL query in AWS Redshift to analyze the data
 <div align="center">
-  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/redshift_SQL.png" width="100%">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/Redshift_SQL.png" width="100%">
 </div>
 
