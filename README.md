@@ -1,7 +1,7 @@
 # Airflow-Data-Pipeline & AWS
 
 <div align="center">
-  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/AirflowAWS.jpeg" width="100%">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/AirflowAWS.jpeg" width="60%">
 </div>
 
 ## Introduction
