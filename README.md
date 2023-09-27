@@ -1,7 +1,7 @@
 # Airflow-Data-Pipeline & AWS
 
 <div align="center">
-  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/AirflowAWS2.jpeg" width="60%">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/AirflowAWS2.png" width="60%">
 </div>
 
 ## Introduction
@@ -10,11 +10,11 @@ Sparkify is a music streaming company, aims to enhance automation and monitoring
 ## Project Airflow DAG 
 
 <div align="center">
-  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/dag_graph.jpeg" width="100%">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/dag_graph.png" width="100%">
 </div>
 
 <div align="center">
-  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/dag_grid.jpeg" width="100%">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/dag_grid.png" width="100%">
 </div>
 
 
@@ -37,7 +37,7 @@ terminals to access the Airflow UI:
    Wait for below:
 
    <div align="center">
-  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/terminals.jpeg" width="100%">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/terminals.png" width="100%">
 </div>
 
  - Copy and load the Data Source into AWS S3
@@ -84,11 +84,11 @@ This operator runs SQL-based data checks, comparing actual results to expected o
 ## Airflow DAGs monitoring
 
 <div align="center">
-  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/dag_run.jpeg" width="100%">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/dag_run.png" width="100%">
 </div>
 
 ## Run SQL query in AWS Redshift to analyze the data
 <div align="center">
-  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/redshift_SQL.jpeg" width="100%">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/redshift_SQL.png" width="100%">
 </div>
 
