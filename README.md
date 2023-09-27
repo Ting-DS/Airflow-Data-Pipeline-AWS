@@ -1,7 +1,7 @@
 # Airflow-Data-Pipeline & AWS
 
 <div align="center">
-  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/AirflowAWS.jpeg" width="60%">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/AirflowAWS2.jpeg" width="60%">
 </div>
 
 ## Introduction
@@ -9,11 +9,23 @@ Sparkify is a music streaming company, aims to enhance automation and monitoring
 
 ## Project Airflow DAG 
 
-[picture]
+<div align="center">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/dag_graph.jpeg" width="100%">
+</div>
+
+<div align="center">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/dag_grid.jpeg" width="100%">
+</div>
+
 
 ## Instuction
  - Create IAM user in AWS and Configure Redshift Serverless and S3 bucket (Note: same region).
- - Connect Airflow to AWS Redshift by Airflow Web-UI.
+   ```
+    IAM Access Key: ''
+    IAM secret access key: ''
+    Redshift Cluster Endpoint: ''
+   ```
+ - Connect Airflow to AWS Redshift by [Airflow Web-UI](https://airflow.apache.org/docs/apache-airflow/stable/ui.html) configuration and Hooks such as [PostgresHook](https://airflow.apache.org/docs/apache-airflow/1.10.10/_api/airflow/hooks/postgres_hook/index.html).
  - Make sure the path is correct in your airflow workspace, run the following commands in the 
 terminals to access the Airflow UI:
    ```
@@ -22,4 +34,61 @@ terminals to access the Airflow UI:
    airflow users create --email student@example.com --firstname aStudent --lastname aStudent --        password admin --role Admin --username admin
    airflow scheduler
    ```
+   Wait for below:
+
+   <div align="center">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/terminals.jpeg" width="100%">
+</div>
+
+ - Copy and load the Data Source into AWS S3
+   ```
+   aws s3 mb s3://sparkify-airflow/
+   aws s3 cp s3://udacity-dend/log-data/ ~/log-data/ --recursive
+   aws s3 cp s3://udacity-dend/song-data/ ~/song-data/ --recursive
+   aws s3 cp ~/log-data/ s3://sparkify-airflow/log-data/ --recursive
+   aws s3 cp ~/song-data/ s3://sparkify-airflow/song-data/ --recursive
+   aws s3 ls s3://sparkify-airflow/log-data/
+   aws s3 ls s3://sparkify-airflow/song-data/
+   ```
+ - Configuring the DAG in the [Airflow_DAG.py](https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/dags/Airflow_Pipeline_DAG.py):
+   ```
+   default_args = {
+    'owner': 'Your Name',
+    'depends_on_past': False,
+    'start_date': datetime(2018, 11, 1),
+    'retries': 3,
+    'retry_delay': timedelta(minutes=5),
+    'catchup': False,
+    'email_on_retry': False
+    }
+    
+    @dag(
+        default_args=default_args,
+        description='Load and transform data in Redshift with Airflow',
+        end_date=datetime(2018, 11, 2),
+        schedule_interval='@hourly'
+    )
+   ```
+## Build plugins operators:
+#### [Stage to Redshift Operator](https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/pluginsOperators/stage_redshift.py):
+The stage operator loads JSON files from S3 to Redshift using SQL COPY statements. It's templated to support timestamped file loading and backfills.
+
+#### [Fact](https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/pluginsOperators/load_fact.py) and [Dimension Operators](https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/pluginsOperators/load_dimension.py):
+These operators use SQL statements for data transformations, specifying the target database. Dimension operators support truncate-insert or insert modes, while fact operators are typically append-only.
+
+#### [Data Quality Operator](https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/pluginsOperators/data_quality.py):
+This operator runs SQL-based data checks, comparing actual results to expected outcomes. It raises exceptions for mismatches, triggering retries until task failure. For example, it can check for NULL values in columns and ensure data quality.
+
+#### Note: Make sure to run the create_tables.py to create initial [star schema](https://awsonlinetraining.home.blog/2020/01/27/optimizing-for-star-schemas-on-amazon-redshift/) in Redshift data warehouse before execute the airflow_DAG.py to trigger the ETL pipeline and insert the data!
+
+## Airflow DAGs monitoring
+
+<div align="center">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/dag_run.jpeg" width="100%">
+</div>
+
+## Run SQL query in AWS Redshift to analyze the data
+<div align="center">
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/redshift_SQL.jpeg" width="100%">
+</div>
 
