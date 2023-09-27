@@ -19,11 +19,7 @@ terminals to access the Airflow UI:
    ```
    /opt/airflow/start-services.sh
    /opt/airflow/start.sh
-   chmod +x set_connections_and_variables.sh
-    ./set_connections_and_variables.sh
-    
    airflow users create --email student@example.com --firstname aStudent --lastname aStudent --        password admin --role Admin --username admin
-    
    airflow scheduler
    ```
 
