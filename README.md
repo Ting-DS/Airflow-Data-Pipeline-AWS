@@ -37,8 +37,8 @@ terminals to access the Airflow UI:
    Wait for below:
 
    <div align="center">
-  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/terminals.png" width="100%">
-</div>
+  <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/terminals.png" width="80%">
+   </div>
 
  - Copy and load the Data Source into AWS S3
    ```
