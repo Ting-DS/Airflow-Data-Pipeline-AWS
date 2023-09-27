@@ -92,3 +92,10 @@ This operator runs SQL-based data checks, comparing actual results to expected o
   <img src="https://github.com/Ting-DS/Airflow-Data-Pipeline/blob/main/image/Redshift_SQL.png" width="100%">
 </div>
 
+## Reference
+
+ - [Apache Airflow](https://airflow.apache.org/)
+ - [Data Engineering with AWS](https://www.amazon.com/Data-Engineering-AWS-Gareth-Eagar/dp/1800560419)
+ - [AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html)
+ - [Amazon Redshift Serverless](https://aws.amazon.com/redshift/redshift-serverless/)
+ - [PostgresHook](https://airflow.apache.org/docs/apache-airflow/1.10.10/_api/airflow/hooks/postgres_hook/index.html)
